@@ -1,18 +1,21 @@
 class Pessoa:
-    def __init__(self, nome=None, idade=37):
+    def __init__(self, *filhos, nome=None, idade=37):
         self.idade = idade
         self.nome = nome
+        self.filhos = list(filhos)
 
     def cumprimetar(self):
         return f'Olá {id(self)}'
 
 
 if __name__ == '__main__':
-    p = Pessoa('Beethoven')
-    print(Pessoa.cumprimetar(p))
-    print(id(p))
-    print(p.cumprimetar())
-    print(p.nome)
-    p.nome = 'Schubert'
-    print(p.nome)
-    print(p.idade)
+    schubert = Pessoa(nome='Schubert')
+    beethoven = Pessoa(schubert,nome='Beethoven')
+    print(Pessoa.cumprimetar(beethoven))
+    print(id(beethoven))
+    print(beethoven.cumprimetar())
+    print(beethoven.nome)
+    print(beethoven.idade)
+    for filho in beethoven.filhos:
+        print(filho.nome)
+    print(beethoven.filhos)
