@@ -2,7 +2,7 @@ class Pessoa:
     def __init__(self, *filhos, nome=None, idade=37):
         self.idade = idade
         self.nome = nome
-        self.filhos = list(filhos)
+        self.filhos = list(filhos) #Atributo Complexo
 
     def cumprimetar(self):
         return f'Olá {id(self)}'
@@ -18,4 +18,7 @@ if __name__ == '__main__':
     print(beethoven.idade)
     for filho in beethoven.filhos:
         print(filho.nome)
-    print(beethoven.filhos)
+    beethoven.sobrenome = 'Santos' #Atributo Dinamico
+    del beethoven.filhos #Deletando um atributo
+    print(beethoven.__dict__) #Atributo de instancia __dict__
+    print(schubert.__dict__)
