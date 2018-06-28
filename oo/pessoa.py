@@ -20,5 +20,12 @@ if __name__ == '__main__':
         print(filho.nome)
     beethoven.sobrenome = 'Santos' #Atributo Dinamico
     del beethoven.filhos #Deletando um atributo
-    print(beethoven.__dict__) #Atributo de instancia __dict__
+    beethoven.olhos = 1
+    del beethoven.olhos
+    print(beethoven.__dict__) #Atributo de instancia de um objeto __dict__
     print(schubert.__dict__)
+    Pessoa.olhos = 3
+    print(Pessoa.olhos)
+    print(beethoven.olhos)
+    print(schubert.olhos)
+    print(id(Pessoa.olhos), id(beethoven.olhos), id(beethoven.olhos))
