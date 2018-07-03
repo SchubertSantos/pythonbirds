@@ -4,9 +4,16 @@ class Pessoa:
         self.nome = nome
         self.filhos = list(filhos) #Atributo Complexo
 
-    def cumprimetar(self):
+    def cumprimetar(self):   #Metodo de instância.
         return f'Olá {id(self)}'
 
+    @staticmethod #Metodo Estatico ou decorator
+    def metodo_estatico():
+        return 42
+
+    @classmethod #Metodo de classe ou decorator de classe.
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'
 
 if __name__ == '__main__':
     schubert = Pessoa(nome='Schubert')
@@ -29,3 +36,5 @@ if __name__ == '__main__':
     print(beethoven.olhos)
     print(schubert.olhos)
     print(id(Pessoa.olhos), id(beethoven.olhos), id(beethoven.olhos))
+    print(Pessoa.metodo_estatico(), beethoven.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(), beethoven.nome_e_atributos_de_classe())
