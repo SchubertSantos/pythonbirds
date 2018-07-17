@@ -43,32 +43,32 @@ os seguintes atributos:
     >>> motor.frear()
     >>> motor.velocidade
     0
-    >>> #Testando Direção
-    >>> motor.Direcao()
+    >>> #Testando Direcao
+    >>> direcao = Direcao()
     >>> direcao.valor
     'Norte'
-    >>> motor.girar_a_direita()
+    >>> direcao.girar_a_direita()
     >>> direcao.valor
     'Leste'
-    >>> motor.girar_a_direita()
+    >>> direcao.girar_a_direita()
     >>> direcao.valor
     'Sul'
-    >>> motor.girar_a_direita()
+    >>> direcao.girar_a_direita()
     >>> direcao.valor
     'Oeste'
-    >>> motor.girar_a_direita()
+    >>> direcao.girar_a_direita()
     >>> direcao.valor
     'Norte'
-    >>> motor.girar_a_esquerda()
+    >>> direcao.girar_a_esquerda()
     >>> direcao.valor
     'Oeste'
-    >>> motor.girar_a_esquerda()
+    >>> direcao.girar_a_esquerda()
     >>> direcao.valor
     'Sul'
-    >>> motor.girar_a_esquerda()
+    >>> direcao.girar_a_esquerda()
     >>> direcao.valor
     'Leste'
-    >>> motor.girar_a_esquerda()
+    >>> direcao.girar_a_esquerda()
     >>> direcao.valor
     'Norte'
     >>> carro = Carro(direcao, motor)
@@ -83,7 +83,6 @@ os seguintes atributos:
     >>> carro.frear()
     >>> carro.calcular_velocidade()
     0
-    >>> carro.girar_a_direita()
     >>> carro.calcular_direcao()
     >>> 'Norte'
     >>> carro.girar_a_direita()
@@ -96,6 +95,7 @@ os seguintes atributos:
     >>> carro.calcular_direcao()
     >>> 'Oeste'
 """
+from typing import Dict
 
 NORTE = 'Norte'
 SUL = 'Sul'
@@ -103,23 +103,21 @@ LESTE = 'Leste'
 OESTE = 'Oeste'
 
 class Direcao:
+
     rotacao_a_direita_dct = {
         NORTE: LESTE, LESTE: SUL, SUL: OESTE, OESTE: NORTE
     }
-
     rotacao_a_esquerda_dct = {
         NORTE: OESTE, LESTE: NORTE, SUL: LESTE, OESTE: SUL
     }
 
+    def __init__(self):
+        self.valor = NORTE
 
-def __init__(self):
-       self.valor = NORTE
-
-   def girar_a_direita(self):
-       self.valor = self.rotacao_a_direita_dct[self.valor]
-   def girar_a_esquerda(self):
-       self.valor = self.rotacao_a_esquerda_dct[self.valor]
-
+    def girar_a_direita(self):
+        self.valor = self.rotacao_a_direita_dct[self.valor]
+    def girar_a_esquerda(self):
+        self.valor = self.rotacao_a_esquerda_dct[self.valor]
 
 
 
